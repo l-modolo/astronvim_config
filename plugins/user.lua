@@ -36,14 +36,23 @@ return {
             requires = {"jmbuhr/otter.nvim", "neovim/nvim-lspconfig"},
             config = function()
                 require("quarto").setup {
+                    debug = false,
+                    closePreviewOnExit = true,
                     lspFeatures = {
                         enabled = true,
                         languages = {"r", "python", "julia"},
+                        chunks = 'curly',
                         diagnostics = {enabled = true, triggers = {"BufWrite"}},
                         completion = {enabled = true}
+                    }
+                    keymap = {
+                        hover = 'K',
+                        definition = 'gd',
+                        rename = '<leader>lR',
+                        references = 'gr',
                     }
                 }
             end
         }
-    }, "HiPhish/nvim-ts-rainbow"
+    }, "HiPhish/nvim-ts-rainbow2", 'hrsh7th/nvim-cmp'
 }

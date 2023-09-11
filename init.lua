@@ -108,6 +108,10 @@ return {
             pattern = {"*.py"},
             command = "set filetype=python"
         })
+        vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+            pattern = {"*.qmd"},
+            command = "set filetype=r"
+        })
         vim.cmd [[
           set colorcolumn=80,120
           let g:VM_maps = {}
